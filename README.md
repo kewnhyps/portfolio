@@ -2,6 +2,11 @@
 
 A modern, responsive personal portfolio website showcasing my skills as a Senior Software Developer, IT Business Analyst, and Data Analyst.
 
+## 🌐 Live Preview
+
+**GitHub Pages:** [https://kewnhyps.github.io/portfolio/](https://kewnhyps.github.io/portfolio/)
+
+*Note: To enable GitHub Pages, go to your repository Settings > Pages > Source: Deploy from a branch > Select 'main' branch*
 
 ## 📋 Table of Contents
 
@@ -146,7 +151,7 @@ portfolio/
    - Simply open `index.html` in your preferred web browser
    - Or use a local server for better development experience:
    \`\`\`bash
-
+ 
 
 ### GitHub Pages Deployment
 
@@ -223,3 +228,4 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ⭐ **If you found this portfolio helpful, please consider giving it a star!**
 
+*Last updated: Augsut 2025*
