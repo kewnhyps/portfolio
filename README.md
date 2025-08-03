@@ -228,4 +228,4 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ⭐ **If you found this portfolio helpful, please consider giving it a star!**
 
-*Last updated: Augsut 2025*
+*Last updated: August 2025*
