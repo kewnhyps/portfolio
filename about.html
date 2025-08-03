@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>About Me - KENEDY MULINGE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Learn about Kenedy Mulinge - Senior Software Developer, IT Business Analyst, and Data Analyst with M.Sc. in Project Management">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="images/logos.jpg" type="image/jpg">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #d5e1df;
+            padding-top: 13px;
+            line-height: 1.6;
+        }
+
+        .main {
+            max-width: 920px;
+            margin: auto;
+        }
+
+        @media screen and (max-width: 600px) {
+            .main {
+                width: 90%;
+            }
+        }
+
+        /* Header Styles */
+        .header-row {
+            background-color: #73AD21;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .header-col1 {
+            flex: 0 0 20%;
+            text-align: center;
+        }
+
+        .header-col2 {
+            flex: 0 0 50%;
+            text-align: center;
+        }
+
+        .header-col3 {
+            flex: 0 0 30%;
+            text-align: center;
+        }
+
+        .profile-img {
+            height: 95px;
+            width: 95px;
+            border-radius: 50px;
+            object-fit: cover;
+            padding-top: 5px;
+        }
+
+        .header-col2 h1 {
+            margin: 0;
+            color: white;
+        }
+
+        .header-col2 font {
+            color: white;
+        }
+
+        .social-links {
+            margin: 24px 0;
+        }
+
+        .social-links a {
+            text-decoration: none;
+            font-size: 18px;
+            color: black;
+            margin: 0 5px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: white;
+        }
+
+        @media screen and (max-width: 600px) {
+            .header-row {
+                flex-direction: column;
+            }
+            .header-col1, .header-col2, .header-col3 {
+                flex: 1;
+                width: 100%;
+                padding: 5px;
+            }
+        }
+
+        /* Navigation Styles */
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .topnav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 30px;
+            text-decoration: none;
+            font-size: 17px;
+            transition: background-color 0.3s;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .topnav .icon1 {
+            display: none;
+        }
+
+        @media screen and (max-width: 600px) {
+            .topnav a:not(:first-child) {display: none;}
+            .topnav a.icon1 {
+                float: right;
+                display: block;
+            }
+            .topnav a {
+                padding: 8px 20px;
+                font-size: 13px;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .topnav.responsive {position: relative;}
+            .topnav.responsive .icon1 {
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+            .topnav.responsive a {
+                float: none;
+                display: block;
+                text-align: left;
+            }
+        }
+
+        /* Content Styles */
+        .content-section {
+            background-color: white;
+            margin: 0;
+            padding: 30px;
+            border-radius: 0 0 5px 5px;
+            box-shadow: 0pt 2px 5px rgba(105, 108, 109, 0.7), 0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
+        }
+
+        /* About Section */
+        .about-intro {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(135deg, #73AD21, #45a049);
+            color: white;
+            margin: -30px -30px 40px -30px;
+            border-radius: 5px;
+        }
+
+        .about-intro h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .about-intro p {
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .developer-container {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+            margin: 40px 0;
+        }
+
+        .developer-left {
+            flex: 0 0 300px;
+            text-align: center;
+        }
+
+        .developer-right {
+            flex: 1;
+        }
+
+        .flip-card {
+            background-color: transparent;
+            width: 250px;
+            height: 300px;
+            perspective: 1000px;
+            margin: 0 auto 20px auto;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+        }
+
+        .flip-card-front {
+            background-color: #bbb;
+            color: black;
+        }
+
+        .flip-card-back {
+            background-color: #2980b9;
+            color: white;
+            transform: rotateY(180deg);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .flip-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .btn {
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            background-color: #73AD21;
+            border-radius: 25px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+        }
+
+        .btn-download {
+            background-color: #2980b9;
+        }
+
+        .btn-download:hover {
+            background-color: #1f5f8b;
+        }
+
+        .developer-right h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        .developer-right h3 {
+            color: #73AD21;
+            margin: 30px 0 15px 0;
+            font-size: 1.5em;
+        }
+
+        .developer-right p {
+            color: #555;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+
+        .developer-right ul {
+            margin-left: 20px;
+            line-height: 1.8;
+        }
+
+        .developer-right li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        /* Education Section */
+        .education-section {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+        }
+
+        .education-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .education-item h4 {
+            color: #73AD21;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .education-item .institution {
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .education-item .year {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .education-item p {
+            color: #555;
+        }
+
+        /* Experience Section */
+        .experience-section {
+            margin: 40px 0;
+        }
+
+        .experience-item {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            border-left: 5px solid #73AD21;
+        }
+
+        .experience-item h4 {
+            color: #73AD21;
+            font-size: 1.4em;
+            margin-bottom: 10px;
+        }
+
+        .experience-item .company {
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .experience-item .duration {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .experience-item ul {
+            margin-left: 20px;
+        }
+
+        .experience-item li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        @media screen and (max-width: 900px) {
+            .developer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .developer-left {
+                flex: none;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .about-intro h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <!-- Header -->
+        <div class="header-row">
+            <div class="header-col1">
+                <img src="images/ken.PNG" alt="Kenedy Mulinge Profile" class="profile-img">
+            </div>
+            <div class="header-col2">
+                <h1>KEN<sup style="font-size: 16px;">TM</sup></h1>
+                <font>Senior Software Developer</font>
+            </div>
+            <div class="header-col3">
+                <div class="social-links">
+                    <a href="https://dribbble.com/kenmuthui" target="_blank" title="Dribbble"><i class="fa fa-dribbble"></i></a> 
+                    <a href="https://twitter.com/Kewnhyps" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a>  
+                    <a href="https://www.linkedin.com/in/mulinge-kenedy-45a2b222a/" target="_blank" title="LinkedIn"><i class="fa fa-linkedin"></i></a>  
+                    <a href="https://www.facebook.com/Kewnhyps.Muthui" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a> 
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="topnav" id="myTopnav">
+            <a href="index.html">HOME</a>
+            <a href="about.html" class="active">ABOUT</a>
+            <a href="portfolio.html">PORTFOLIO</a>
+            <a href="blog.html">BLOG</a>
+            <a href="contact.html">CONTACT</a>
+            <a href="javascript:void(0);" class="icon1" onclick="toggleNav()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content-section">
+            <!-- About Intro -->
+            <div class="about-intro">
+                <h1>About Me</h1>
+                <p>Senior Software Developer, IT Business Analyst, and Data Analyst with expertise in regulatory systems, AI integration, and full-stack development.</p>
+            </div>
+
+            <!-- Developer Profile -->
+            <div class="developer-container">
+                <div class="developer-left">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="images/whyps.jpg" alt="Kenedy Mulinge - Senior Software Developer">
+                            </div>
+                            <div class="flip-card-back">
+                                <h1>Kenedy Mulinge</h1> 
+                                <p>Senior Software Developer</p> 
+                                <p>IT Business Analyst</p>
+                                <p>Data Analyst</p>
+                                <p>"Creating solutions with 100% success rates"</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="portfolio.html" class="btn">VIEW PORTFOLIO</a>
+                    <a href="resume/ResumeKenedyMulinge.pdf" download class="btn btn-download">
+                        <i class="fa fa-download"></i> DOWNLOAD CV
+                    </a>
+                    <a href="https://www.linkedin.com/in/mulinge-kenedy-45a2b222a/" target="_blank" class="btn" style="background-color: #0077B5;">
+                        <i class="fa fa-linkedin"></i> LINKEDIN
+                    </a>
+                </div>
+                
+                <div class="developer-right">
+                    <h2>Career Summary</h2>
+                    <p>Full stack software developer, IT Business analyst and Data analyst with M.Sc. in Project Management and Planning. Graduated with first class honors degree in B.Sc. Information Technology. Creates business solutions with 100% success rates, assessing business risks, solution elicitation, strong stakeholder engagement, and providing effective change strategies while meeting business requirements.</p>
+                    
+                    <p>Experienced in Agile, Waterfall, Hybrid methodologies, Microservices architecture, and AWS cloud services. Develops system prototypes, user stories and MVPs to improve project delivery timeline with 100% product scope and solutions met. Outstanding team player with a proven track record of managing and developing high-performance teams.</p>
+
+                    <h3>Core Competencies</h3>
+                    <ul>
+                        <li><strong>Regulatory Systems:</strong> FDA, Drug Authority, and compliance management systems</li>
+                        <li><strong>AI Integration:</strong> Business plan writers, grant writers, automated workflows</li>
+                        <li><strong>Business Intelligence:</strong> Dashboard development, data analytics, reporting</li>
+                        <li><strong>Mobile Development:</strong> Cross-platform apps, USSD integration, port inspection systems</li>
+                        <li><strong>API Development:</strong> Payment gateways, XML/JSON APIs, enterprise integrations</li>
+                        <li><strong>Team Leadership:</strong> High-performance team development and management</li>
+                    </ul>
+
+                    <h3>Methodologies & Frameworks</h3>
+                    <ul>
+                        <li>Agile, Waterfall, and Hybrid project management</li>
+                        <li>Microservices architecture and AWS cloud services</li>
+                        <li>Enterprise Service Bus (ESB) integration</li>
+                        <li>DevExpress framework for BI dashboards</li>
+                        <li>Laravel PHP framework for backend development</li>
+                        <li>C# .NET framework for enterprise applications</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Educational Background -->
+            <div class="education-section">
+                <h2 style="text-align: center; color: #333; margin-bottom: 30px;">
+                    <i class="fa fa-graduation-cap"></i> Educational Background
+                </h2>
+                
+                <div class="education-item">
+                    <h4>M.Sc. Project Management & Planning</h4>
+                    <div class="institution">Mount Kenya University</div>
+                    <div class="year">2024 - Present</div>
+                    <p>Currently pursuing Master's degree in Project Management and Planning, focusing on advanced project methodologies, risk management, and strategic planning for complex software development projects.</p>
+                </div>
+                
+                <div class="education-item">
+                    <h4>B.Sc. Information Technology - First Class Honors</h4>
+                    <div class="institution">South Eastern Kenya University</div>
+                    <div class="year">Graduated October 2021</div>
+                    <p>Graduated with First Class Honors, specializing in software development, database systems, and information technology management. Completed comprehensive coursework in programming, system analysis, and project management.</p>
+                </div>
+                
+                <div class="education-item">
+                    <h4>Professional Certifications</h4>
+                    <div class="institution">Various Institutions</div>
+                    <div class="year">2019 - Present</div>
+                    <p>
+                        • <strong>Data Security Certificate</strong> - Huawei Technologies<br>
+                        • <strong>Cybersecurity and Emerging Technologies</strong> - Capabuil<br>
+                        • <strong>Data Analytics</strong> - ISACA<br>
+                        • <strong>Statistical Package for Social Sciences (SPSS)</strong> - KESAP Research Centre (2019)
+                    </p>
+                </div>
+            </div>
+
+            <!-- Professional Experience -->
+            <div class="experience-section">
+                <h2 style="text-align: center; color: #333; margin-bottom: 30px;">
+                    <i class="fa fa-briefcase"></i> Professional Experience
+                </h2>
+                
+                <div class="experience-item">
+                    <h4>Senior Software Consultant & Regulatory Information System Specialist</h4>
+                    <div class="company">SoftClans Technologies, Nairobi</div>
+                    <div class="duration">November 2021 — Present</div>
+                    <ul>
+                        <li><strong>Rwanda FDA System:</strong> Conducted onsite user gap analysis and final product user training, flattening system development cycle by 30%</li>
+                        <li><strong>Zambia Regulatory System:</strong> Successfully integrated with S2B Payment API (Standard Chartered Bank), developed BI dashboards using DevExpress (C#) framework, reducing application processing backlogs to 0.009%</li>
+                        <li><strong>Uganda National Drug Authority:</strong> Conducted on-sight user requirement gathering, integrated system to NIMS, Single Window, Asycuda world, and various APIs including SMS and payment gateways</li>
+                        <li><strong>WHO Vigiflow Integration:</strong> Developed XML-based API to connect to WHO vigibase, helping track drug adverse effects by 70%</li>
+                        <li><strong>Botswana Medicines Authority:</strong> Developed multiplatform mobile app for port of entry inspections, reducing congestions and backlogs by 80%. Developed USSD backend API using Laravel</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <h4>Technical Lead | Machine Learning Full Stack Developer</h4>
+                    <div class="company">HibretOne CIC, Birmingham</div>
+                    <div class="duration">February 2021 — February 2024</div>
+                    <ul>
+                        <li><strong>AI-Powered Solutions:</strong> Led development of AI-driven business plan writer, CV builder, and grant writer tools</li>
+                        <li><strong>Full-Stack Development:</strong> Engineered responsive front-end interfaces and scalable backend microservices</li>
+                        <li><strong>AI Integration & Automation:</strong> Integrated AI capabilities to automate workflows, reducing manual effort and accelerating MVP development</li>
+                        <li><strong>Platform Integrations:</strong> Implemented integrations with payment gateways, document management systems, and enterprise service buses</li>
+                        <li><strong>Workflow Optimization:</strong> Developed AI-powered workflow engines that automate complex tasks, enhancing productivity</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <h4>Software Developer</h4>
+                    <div class="company">Ecites Solutions, Nairobi</div>
+                    <div class="duration">September 2017 — May 2024</div>
+                    <ul>
+                        <li>Developed custom web applications and management systems for various clients</li>
+                        <li>Created mobile applications for business process automation</li>
+                        <li>Implemented database solutions and API integrations</li>
+                        <li>Provided technical support and system maintenance services</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <h4>Database and Server Administrator (Intern)</h4>
+                    <div class="company">ICT Authority of Kenya, Nairobi</div>
+                    <div class="duration">May 2021 — November 2021</div>
+                    <ul>
+                        <li>Managed database systems and server infrastructure</li>
+                        <li>Performed system backups and recovery procedures</li>
+                        <li>Assisted in system security and performance optimization</li>
+                        <li>Supported IT operations and user technical issues</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Languages & Skills -->
+            <div style="background: linear-gradient(135deg, #f8f9fa, #e9ecef); padding: 40px; border-radius: 15px; margin: 40px 0;">
+                <h2 style="text-align: center; color: #333; margin-bottom: 30px;">
+                    <i class="fa fa-globe"></i> Languages & Additional Skills
+                </h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                    <div style="text-align: center;">
+                        <h4 style="color: #73AD21; margin-bottom: 15px;">Languages</h4>
+                        <p><strong>English:</strong> Native Speaker</p>
+                        <p><strong>Swahili:</strong> Native Speaker</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <h4 style="color: #73AD21; margin-bottom: 15px;">Contact Information</h4>
+                        <p><i class="fa fa-phone"></i> +254 704 753 346</p>
+                        <p><i class="fa fa-envelope"></i> kenedymuthui1@gmail.com</p>
+                        <p><i class="fa fa-map-marker"></i> Nairobi, Kenya</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Personal Philosophy -->
+            <div style="background: linear-gradient(135deg, #333, #555); color: white; padding: 40px; border-radius: 10px; text-align: center; margin: 40px 0;">
+                <h3 style="font-size: 1.8em; margin-bottom: 20px;">My Professional Philosophy</h3>
+                <p style="font-size: 1.2em; font-style: italic; max-width: 600px; margin: 0 auto;">
+                    "Success in software development comes from understanding business needs, implementing robust solutions, and maintaining strong stakeholder relationships. Every project is an opportunity to create value and drive positive change through technology."
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleNav() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>

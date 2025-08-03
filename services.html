@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Services - KENEDY MULINGE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Professional software development services by Kenedy Mulinge - Regulatory systems, AI integration, mobile apps, and enterprise solutions">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="images/logos.jpg" type="image/jpg">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #d5e1df;
+            padding-top: 13px;
+            line-height: 1.6;
+        }
+
+        .main {
+            max-width: 920px;
+            margin: auto;
+        }
+
+        @media screen and (max-width: 600px) {
+            .main {
+                width: 90%;
+            }
+        }
+
+        /* Header Styles */
+        .header-row {
+            background-color: #73AD21;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .header-col1 {
+            flex: 0 0 20%;
+            text-align: center;
+        }
+
+        .header-col2 {
+            flex: 0 0 50%;
+            text-align: center;
+        }
+
+        .header-col3 {
+            flex: 0 0 30%;
+            text-align: center;
+        }
+
+        .profile-img {
+            height: 95px;
+            width: 95px;
+            border-radius: 50px;
+            object-fit: cover;
+            padding-top: 5px;
+        }
+
+        .header-col2 h1 {
+            margin: 0;
+            color: white;
+        }
+
+        .header-col2 font {
+            color: white;
+        }
+
+        .social-links {
+            margin: 24px 0;
+        }
+
+        .social-links a {
+            text-decoration: none;
+            font-size: 18px;
+            color: black;
+            margin: 0 5px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: white;
+        }
+
+        @media screen and (max-width: 600px) {
+            .header-row {
+                flex-direction: column;
+            }
+            .header-col1, .header-col2, .header-col3 {
+                flex: 1;
+                width: 100%;
+                padding: 5px;
+            }
+        }
+
+        /* Navigation Styles */
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .topnav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 30px;
+            text-decoration: none;
+            font-size: 17px;
+            transition: background-color 0.3s;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .topnav .icon1 {
+            display: none;
+        }
+
+        @media screen and (max-width: 600px) {
+            .topnav a:not(:first-child) {display: none;}
+            .topnav a.icon1 {
+                float: right;
+                display: block;
+            }
+            .topnav a {
+                padding: 8px 20px;
+                font-size: 13px;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .topnav.responsive {position: relative;}
+            .topnav.responsive .icon1 {
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+            .topnav.responsive a {
+                float: none;
+                display: block;
+                text-align: left;
+            }
+        }
+
+        /* Content Styles */
+        .content-section {
+            background-color: white;
+            margin: 0;
+            padding: 30px;
+            border-radius: 0 0 5px 5px;
+            box-shadow: 0pt 2px 5px rgba(105, 108, 109, 0.7), 0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
+        }
+
+        /* Services Header */
+        .services-header {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(135deg, #73AD21, #45a049);
+            color: white;
+            margin: -30px -30px 40px -30px;
+            border-radius: 5px;
+        }
+
+        .services-header h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .services-header p {
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .service-card {
+            background-color: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #73AD21, #45a049);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .service-icon i {
+            font-size: 2.5em;
+            color: white;
+        }
+
+        .service-card h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .service-card p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .service-features {
+            list-style: none;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .service-features li {
+            color: #555;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            color: #73AD21;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .service-price {
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #73AD21;
+        }
+
+        .price-label {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+
+        .price-amount {
+            color: #73AD21;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #73AD21, #45a049);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(115, 173, 33, 0.3);
+        }
+
+        /* Process Section */
+        .process-section {
+            margin: 50px 0;
+            padding: 40px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+        }
+
+        .process-section h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 40px;
+            font-size: 2em;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #73AD21, #45a049);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+
+        .process-step h4 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .process-step p {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        @media screen and (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <!-- Header -->
+        <div class="header-row">
+            <div class="header-col1">
+                <img src="images/ken.PNG" alt="Kenedy Mulinge Profile" class="profile-img">
+            </div>
+            <div class="header-col2">
+                <h1>KEN<sup style="font-size: 16px;">TM</sup></h1>
+                <font>Senior Software Developer</font>
+            </div>
+            <div class="header-col3">
+                <div class="social-links">
+                    <a href="https://dribbble.com/kenmuthui" target="_blank" title="Dribbble"><i class="fa fa-dribbble"></i></a> 
+                    <a href="https://twitter.com/Kewnhyps" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a>  
+                    <a href="https://www.linkedin.com/in/mulinge-kenedy-45a2b222a/" target="_blank" title="LinkedIn"><i class="fa fa-linkedin"></i></a>  
+                    <a href="https://www.facebook.com/Kewnhyps.Muthui" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a> 
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="topnav" id="myTopnav">
+            <a href="index.html">HOME</a>
+            <a href="about.html">ABOUT</a>
+            <a href="skills.html">SKILLS</a>
+            <a href="projects.html">PROJECTS</a>
+            <a href="services.html" class="active">SERVICES</a>
+            <a href="blog.html">BLOG</a>
+            <a href="contact.html">CONTACT</a>
+            <a href="javascript:void(0);" class="icon1" onclick="toggleNav()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content-section">
+            <!-- Services Header -->
+            <div class="services-header">
+                <h1>Professional Services</h1>
+                <p>Comprehensive software development services with 100% project success rate, specializing in regulatory systems, AI integration, and enterprise solutions.</p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fa fa-building"></i>
+                    </div>
+                    <h3>Regulatory System Development</h3>
+                    <p>Specialized development of integrated management systems for regulatory authorities including FDA, drug authorities, and compliance systems.</p>
+                    <ul class="service-features">
+                        <li>FDA system development and integration</li>
+                        <li>Drug authority compliance systems</li>
+                        <li>WHO vigiflow API integration</li>
+                        <li>Enterprise service bus architecture</li>
+                        <li>Audit trail and compliance reporting</li>
+                        <li>Multi-country regulatory support</li>
+                    </ul>
+                    <div class="service-price">
+                        <div class="price-label">Starting from</div>
+                        <div class="price-amount">$25,000</div>
+                    </div>
+                    <a href="contact.html" class="btn">Get Quote</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fa fa-robot"></i>
+                    </div>
+                    <h3>AI Integration & Automation</h3>
+                    <p>AI-powered solutions including business automation tools, intelligent workflows, and machine learning integration for enhanced productivity.</p>
+                    <ul class="service-features">
+                        <li>AI-powered business plan writers</li>
+                        <li>Automated workflow engines</li>
+                        <li>Intelligent document processing</li>
+                        <li>Machine learning model integration</li>
+                        <li>Process automation solutions</li>
+                        <li>Custom AI tool development</li>
+                    </ul>
+                    <div class="service-price">
+                        <div class="price-label">Starting from</div>
+                        <div class="price-amount">$15,000</div>
+                    </div>
+                    <a href="contact.html" class="btn">Get Quote</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fa fa-line-chart"></i>
+                    </div>
+                    <h3>Business Intelligence Dashboards</h3>
+                    <p>Advanced BI dashboard development using DevExpress framework, reducing processing backlogs and providing real-time business insights.</p>
+                    <ul class="service-features">
+                        <li>DevExpress BI dashboard development</li>
+                        <li>Real-time data visualization</li>
+                        <li>Executive reporting systems</li>
+                        <li>Performance analytics</li>
+                        <li>Custom KPI tracking</li>
+                        <li>Data integration solutions</li>
+                    </ul>
+                    <div class="service-price">
+                        <div class="price-label">Starting from</div>
+                        <div class="price-amount">$10,000</div>
+                    </div>
+                    <a href="contact.html" class="btn">Get Quote</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fa fa-mobile"></i>
+                    </div>
+                    <h3>Mobile App Development</h3>
+                    <p>Cross-platform mobile applications for business processes, including specialized solutions like port inspection systems and USSD integration.</p>
+                    <ul class="service-features">
+                        <li>Cross-platform mobile development</li>
+                        <li>USSD backend API development</li>
+                        <li>Enterprise mobile solutions</li>
+                        <li>Offline capability integration</li>
+                        <li>Real-time synchronization</li>
+                        <li>Custom mobile UI/UX design</li>
+                    </ul>
+                    <div class="service-price">
+                        <div class="price-label">Starting from</div>
+                        <div class="price-amount">$8,000</div>
+                    </div>
+                    <a href="contact.html" class="btn">Get Quote</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fa fa-code"></i>
+                    </div>
+                    <h3>Full Stack Web Development</h3>
+                    <p>Complete web application development using modern technologies including C#, Laravel, and JavaScript frameworks for scalable solutions.</p>
+                    <ul class="service-features">
+                        <li>C# .NET application development</li>
+                        <li>Laravel PHP framework solutions</li>
+                        <li>JavaScript frontend development</li>
+                        <li>Database design and optimization</li>
+                        <li>API development and integration</li>
+                        <li>Responsive web design</li>
+                    </ul>
+                    <div class="service-price">
+                        <div class="price-label">Starting from</div>
+                        <div class="price-amount">$5,000</div>
+                    </div>
+                    <a href="contact.html" class="btn">Get Quote</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fa fa-users"></i>
+                    </div>
+                    <h3>Technical Consultation & Leadership</h3>
+                    <p>Expert technical consultation, project management, and team leadership services with proven track record of 100% project success rates.</p>
+                    <ul class="service-features">
+                        <li>Technical architecture consultation</li>
+                        <li>Project management (Agile/Waterfall)</li>
+                        <li>Team leadership and mentoring</li>
+                        <li>Code review and quality assurance</li>
+                        <li>Technology stack recommendations</li>
+                        <li>Risk assessment and mitigation</li>
+                    </ul>
+                    <div class="service-price">
+                        <div class="price-label">Starting from</div>
+                        <div class="price-amount">$150/hour</div>
+                    </div>
+                    <a href="contact.html" class="btn">Get Quote</a>
+                </div>
+            </div>
+
+            <!-- Process Section -->
+            <div class="process-section">
+                <h2><i class="fa fa-cogs"></i> My Development Process</h2>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h4>Discovery & Planning</h4>
+                        <p>Comprehensive requirement gathering, stakeholder engagement, and project planning with risk assessment.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h4>Architecture Design</h4>
+                        <p>System architecture design, technology stack selection, and technical specification documentation.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h4>Development & Testing</h4>
+                        <p>Agile development with continuous integration, comprehensive testing, and quality assurance.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h4>Deployment & Support</h4>
+                        <p>Production deployment, user training, documentation, and ongoing support and maintenance.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div style="background: linear-gradient(135deg, #73AD21, #45a049); color: white; padding: 40px; border-radius: 15px; text-align: center; margin: 40px 0;">
+                <h3 style="font-size: 1.8em; margin-bottom: 20px;">Ready to Start Your Project?</h3>
+                <p style="font-size: 1.2em; margin-bottom: 25px;">
+                    With M.Sc. in Project Management, proven expertise, and 100% success rate, I'm ready to transform your business with cutting-edge technology solutions.
+                </p>
+                <a href="contact.html" style="background-color: white; color: #73AD21; padding: 15px 30px; border-radius: 25px; text-decoration: none; font-weight: bold; margin: 10px; display: inline-block; transition: all 0.3s ease;">
+                    <i class="fa fa-rocket"></i> Get Started
+                </a>
+                <a href="portfolio.html" style="background-color: transparent; border: 2px solid white; color: white; padding: 15px 30px; border-radius: 25px; text-decoration: none; font-weight: bold; margin: 10px; display: inline-block; transition: all 0.3s ease;">
+                    <i class="fa fa-eye"></i> View My Work
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleNav() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Animate service cards on scroll
+        function animateServices() {
+            const cards = document.querySelectorAll('.service-card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '0';
+                        entry.target.style.transform = 'translateY(30px)';
+                        setTimeout(() => {
+                            entry.target.style.transition = 'all 0.6s ease';
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, 100);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            cards.forEach(card => observer.observe(card));
+        }
+
+        // Initialize animations
+        window.addEventListener('load', animateServices);
+    </script>
+</body>
+</html>

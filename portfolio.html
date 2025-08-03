@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Portfolio - KENEDY MULINGE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Explore Kenedy Mulinge's portfolio of regulatory systems, AI-powered solutions, and full-stack development projects">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="images/logos.jpg" type="image/jpg">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #d5e1df;
+            padding-top: 13px;
+        }
+
+        .main {
+            max-width: 920px;
+            margin: auto;
+        }
+
+        @media screen and (max-width: 600px) {
+            .main {
+                width: 90%;
+            }
+        }
+
+        /* Header Styles */
+        .header-row {
+            background-color: #73AD21;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .header-col1 {
+            flex: 0 0 20%;
+            text-align: center;
+        }
+
+        .header-col2 {
+            flex: 0 0 50%;
+            text-align: center;
+        }
+
+        .header-col3 {
+            flex: 0 0 30%;
+            text-align: center;
+        }
+
+        .profile-img {
+            height: 95px;
+            width: 95px;
+            border-radius: 50px;
+            object-fit: cover;
+            padding-top: 5px;
+        }
+
+        .header-col2 h1 {
+            margin: 0;
+            color: white;
+        }
+
+        .header-col2 font {
+            color: white;
+        }
+
+        .social-links {
+            margin: 24px 0;
+        }
+
+        .social-links a {
+            text-decoration: none;
+            font-size: 18px;
+            color: black;
+            margin: 0 5px;
+        }
+
+        @media screen and (max-width: 600px) {
+            .header-row {
+                flex-direction: column;
+            }
+            .header-col1, .header-col2, .header-col3 {
+                flex: 1;
+                width: 100%;
+                padding: 5px;
+            }
+        }
+
+        /* Navigation Styles */
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .topnav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 30px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .topnav .icon1 {
+            display: none;
+        }
+
+        @media screen and (max-width: 600px) {
+            .topnav a:not(:first-child) {display: none;}
+            .topnav a.icon1 {
+                float: right;
+                display: block;
+            }
+            .topnav a {
+                padding: 8px 20px;
+                font-size: 13px;
+            }
+            .btn {
+                margin-bottom: 10px;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .topnav.responsive {position: relative;}
+            .topnav.responsive .icon1 {
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+            .topnav.responsive a {
+                float: none;
+                display: block;
+                text-align: left;
+            }
+        }
+
+        /* Content Styles */
+        .content-section {
+            background-color: white;
+            margin: 0;
+            padding: 20px;
+            border-radius: 0 0 5px 5px;
+            box-shadow: 0pt 2px 5px rgba(105, 108, 109, 0.7), 0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
+            min-height: 500px;
+        }
+
+        /* Portfolio Header */
+        .portfolio-header {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(135deg, #73AD21, #45a049);
+            color: white;
+            margin: -20px -20px 30px -20px;
+            border-radius: 5px;
+        }
+
+        .portfolio-header h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .portfolio-header p {
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Portfolio Filters */
+        .portfolio-filters {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .portfolio-filters .btn {
+            border: none;
+            outline: none;
+            padding: 12px 16px;
+            background-color: white;
+            cursor: pointer;
+            margin: 5px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-filters .btn:hover {
+            background-color: #ddd;
+            transform: translateY(-2px);
+        }
+
+        .portfolio-filters .btn.active {
+            background-color: #73AD21;
+            color: white;
+        }
+
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .portfolio-item {
+            display: none;
+        }
+
+        .portfolio-item.show {
+            display: block;
+        }
+
+        .portfolio-content {
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0pt 2px 5px rgba(105, 108, 109, 0.7), 0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
+            text-align: center;
+            transition: transform 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .portfolio-content:hover {
+            transform: translateY(-5px);
+        }
+
+        .portfolio-content img {
+            width: 100%;
+            max-height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .portfolio-content h4 {
+            margin: 15px 0;
+            color: #333;
+            font-size: 1.2em;
+        }
+
+        .portfolio-content a {
+            color: #73AD21;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .portfolio-content a:hover {
+            color: #45a049;
+        }
+
+        .portfolio-content p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+            margin: 15px 0;
+            flex-grow: 1;
+        }
+
+        .portfolio-meta {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            font-size: 12px;
+            color: #999;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin: 10px 0;
+            justify-content: center;
+        }
+
+        .tech-tag {
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .btn-small {
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            font-weight: bold;
+            background-color: #73AD21;
+            border-radius: 20px;
+            font-size: 12px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-small:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+        }
+
+        /* Featured Project */
+        .featured-section {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .featured-section h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        .featured-section p {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 25px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .featured-section .btn {
+            background-color: #73AD21;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .featured-section .btn:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+        }
+
+        @media screen and (max-width: 600px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <!-- Header -->
+        <div class="header-row">
+            <div class="header-col1">
+                <img src="images/ken.PNG" alt="Kenedy Mulinge Profile" class="profile-img">
+            </div>
+            <div class="header-col2">
+                <h1>KEN<sup style="font-size: 16px;">TM</sup></h1>
+                <font>Senior Software Developer</font>
+            </div>
+            <div class="header-col3">
+                <div class="social-links">
+                    <a href="https://dribbble.com/kenmuthui" target="_blank"><i class="fa fa-dribbble"></i></a> 
+                    <a href="https://twitter.com/Kewnhyps" target="_blank"><i class="fa fa-twitter"></i></a>  
+                    <a href="https://www.linkedin.com/in/mulinge-kenedy-45a2b222a/" target="_blank"><i class="fa fa-linkedin"></i></a>  
+                    <a href="https://www.facebook.com/Kewnhyps.Muthui" target="_blank"><i class="fa fa-facebook"></i></a> 
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="topnav" id="myTopnav">
+            <a href="index.html">HOME</a>
+            <a href="about.html">ABOUT</a>
+            <a href="portfolio.html" class="active">PORTFOLIO</a>
+            <a href="blog.html">BLOG</a>
+            <a href="contact.html">CONTACT</a>
+            <a href="javascript:void(0);" class="icon1" onclick="toggleNav()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+
+        <!-- Portfolio Content -->
+        <div class="content-section">
+            <!-- Portfolio Header -->
+            <div class="portfolio-header">
+                <h1>My Portfolio</h1>
+                <p>Regulatory systems, AI-powered solutions, and enterprise applications that drive business success with 100% project completion rates.</p>
+            </div>
+            
+            <div class="portfolio-filters" id="myBtnContainer">
+                <button class="btn active" onclick="filterSelection('all')">All Projects</button>
+                <button class="btn" onclick="filterSelection('regulatory')">Regulatory Systems</button>
+                <button class="btn" onclick="filterSelection('ai')">AI Solutions</button>
+                <button class="btn" onclick="filterSelection('mobile')">Mobile Apps</button>
+                <button class="btn" onclick="filterSelection('website')">Websites</button>
+            </div>
+
+            <div class="portfolio-grid">
+                <!-- Rwanda FDA System -->
+                <div class="portfolio-item regulatory show">
+                    <div class="portfolio-content">
+                        <img src="images/student.png" alt="Rwanda FDA System">
+                        <h4>Rwanda Food and Drug Authority System</h4>
+                        <p>Integrated Management Information System for Food and Medicines Regulatory Authorities. Conducted onsite user gap analysis and training, reducing development cycle by 30%.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">C#</span>
+                            <span class="tech-tag">.NET</span>
+                            <span class="tech-tag">SQL Server</span>
+                            <span class="tech-tag">DevExpress</span>
+                        </div>
+                        <div class="portfolio-meta">
+                            <strong>Client:</strong> Rwanda FDA | <strong>Status:</strong> Deployed
+                        </div>
+                        <a href="#" class="btn-small">View Details <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Zambia Regulatory System -->
+                <div class="portfolio-item regulatory show">
+                    <div class="portfolio-content">
+                        <img src="images/mainkentech.png" alt="Zambia Regulatory System">
+                        <h4>Zambia Integrated Regulatory Information System</h4>
+                        <p>Successfully integrated with S2B Payment API (Standard Chartered Bank). Developed BI dashboards reducing application processing backlogs to 0.009%.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">C#</span>
+                            <span class="tech-tag">DevExpress</span>
+                            <span class="tech-tag">Payment API</span>
+                            <span class="tech-tag">BI Dashboard</span>
+                        </div>
+                        <div class="portfolio-meta">
+                            <strong>Client:</strong> Zambia Regulatory Authority | <strong>Status:</strong> Live
+                        </div>
+                        <a href="#" class="btn-small">View Details <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Uganda National Drug Authority -->
+                <div class="portfolio-item regulatory show">
+                    <div class="portfolio-content">
+                        <img src="images/alumni.png" alt="Uganda NDA System">
+                        <h4>Uganda National Drug Authority System</h4>
+                        <p>Integrated system to NIMS, Single Window, Asycuda world. Developed WHO vigiflow API tracking drug adverse effects by 70%.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">XML API</span>
+                            <span class="tech-tag">ESB</span>
+                            <span class="tech-tag">WHO Integration</span>
+                            <span class="tech-tag">SMS Gateway</span>
+                        </div>
+                        <div class="portfolio-meta">
+                            <strong>Client:</strong> Uganda NDA | <strong>Status:</strong> Deployed
+                        </div>
+                        <a href="#" class="btn-small">View Details <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Botswana Mobile App -->
+                <div class="portfolio-item mobile regulatory show">
+                    <div class="portfolio-content">
+                        <img src="images/church.png" alt="Botswana Mobile App">
+                        <h4>Botswana Port Inspection Mobile App</h4>
+                        <p>Multiplatform mobile app for port of entry inspections, reducing congestions and backlogs by 80%. Includes USSD backend API.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Android</span>
+                            <span class="tech-tag">Laravel</span>
+                            <span class="tech-tag">USSD API</span>
+                            <span class="tech-tag">Cross-platform</span>
+                        </div>
+                        <div class="portfolio-meta">
+                            <strong>Client:</strong> Botswana Medicines Authority | <strong>Status:</strong> Live
+                        </div>
+                        <a href="#" class="btn-small">View Details <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- HibretOne AI Platform -->
+                <div class="portfolio-item ai show">
+                    <div class="portfolio-content">
+                        <img src="images/ecites.png" alt="HibretOne AI Platform">
+                        <h4>HibretOne AI-Powered Business Platform</h4>
+                        <p>AI-driven business plan writer, CV builder, and grant writer. Automated workflows reducing manual effort and accelerating MVP development.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">AI/ML</span>
+                            <span class="tech-tag">Microservices</span>
+                            <span class="tech-tag">Full Stack</span>
+                            <span class="tech-tag">Automation</span>
+                        </div>
+                        <div class="portfolio-meta">
+                            <strong>Client:</strong> HibretOne CIC, UK | <strong>Status:</strong> Live
+                        </div>
+                        <a href="#" class="btn-small">View Details <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Student Management System -->
+                <div class="portfolio-item website show">
+                    <div class="portfolio-content">
+                        <img src="images/student.png" alt="Student Management System">
+                        <h4><a href="https://www.demo.ecites.co.ke/demo/student/" target="_blank">Student Management System</a></h4>
+                        <p>Comprehensive student management portal with course tracking, grade management, and communication tools.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Bootstrap</span>
+                        </div>
+                        <div class="portfolio-meta">
+                            <strong>Type:</strong> Educational System | <strong>Status:</strong> Live Demo
+                        </div>
+                        <a href="https://www.demo.ecites.co.ke/demo/student/" target="_blank" class="btn-small">Live Demo <i class="fa fa-external-link"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Kentech School Website -->
+                <div class="portfolio-item website show">
+                    <div class="portfolio-content">
+                        <img src="images/mainkentech.png" alt="Kentech School Website">
+                        <h4><a href="https://www.demo.ecites.co.ke/demo/mainpage/" target="_blank">Kentech School of Computing</a></h4>
+                        <p>Modern educational institution website with course catalog, online enrollment system, and learning management features.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">Responsive</span>
+                        </div>
+                        <div class="portfolio-meta">
+                            <strong>Type:</strong> Educational Website | <strong>Status:</strong> Live Demo
+                        </div>
+                        <a href="https://www.demo.ecites.co.ke/demo/mainpage/" target="_blank" class="btn-small">Live Demo <i class="fa fa-external-link"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Alumni Network -->
+                <div class="portfolio-item website show">
+                    <div class="portfolio-content">
+                        <img src="images/alumni.png" alt="Alumni Network">
+                        <h4><a href="https://www.demo.ecites.co.ke/demo/alumni/" target="_blank">Alumni Network Platform</a></h4>
+                        <p>Professional networking platform for alumni with job board, event management, and career development resources.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">Laravel</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">REST API</span>
+                        </div>
+                        <div class="portfolio-meta">
+                            <strong>Type:</strong> Networking Platform | <strong>Status:</strong> Live Demo
+                        </div>
+                        <a href="https://www.demo.ecites.co.ke/demo/alumni/" target="_blank" class="btn-small">Live Demo <i class="fa fa-external-link"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Church Management System -->
+                <div class="portfolio-item website show">
+                    <div class="portfolio-content">
+                        <img src="images/church.png" alt="Church Management System">
+                        <h4><a href="https://www.demo.ecites.co.ke/demo/church/" target="_blank">Church Management System</a></h4>
+                        <p>Complete church administration system with member management, event scheduling, and donation tracking.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">jQuery</span>
+                            <span class="tech-tag">Bootstrap</span>
+                        </div>
+                        <div class="portfolio-meta">
+                            <strong>Type:</strong> Management System | <strong>Status:</strong> Live Demo
+                        </div>
+                        <a href="https://www.demo.ecites.co.ke/demo/church/" target="_blank" class="btn-small">Live Demo <i class="fa fa-external-link"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Project Section -->
+            <div class="featured-section">
+                <h2><i class="fa fa-star"></i> Current Focus: AI & Regulatory Innovation</h2>
+                <p>
+                    Currently leading the development of next-generation regulatory systems with integrated AI capabilities. 
+                    These systems combine traditional regulatory compliance with modern AI-powered automation, 
+                    setting new standards for efficiency and accuracy in regulatory management.
+                </p>
+                <a href="contact.html" class="btn">
+                    <i class="fa fa-envelope"></i> Discuss Your Project
+                </a>
+                <a href="about.html" class="btn" style="background-color: #2980b9;">
+                    <i class="fa fa-user"></i> Learn More About Me
+                </a>
+            </div>
+
+            <!-- Call to Action -->
+            <div style="background: linear-gradient(135deg, #333, #555); color: white; padding: 40px; border-radius: 10px; text-align: center; margin: 40px 0;">
+                <h3 style="font-size: 1.8em; margin-bottom: 20px;">Ready to Transform Your Business?</h3>
+                <p style="font-size: 1.2em; margin-bottom: 25px;">
+                    With 100% project success rate and expertise in regulatory systems, AI integration, and full-stack development, 
+                    let's create solutions that drive real business results.
+                </p>
+                <a href="contact.html" style="background-color: #73AD21; color: white; padding: 15px 30px; border-radius: 25px; text-decoration: none; font-weight: bold; margin: 10px; display: inline-block; transition: all 0.3s ease;">Start Your Project</a>
+                <a href="https://www.linkedin.com/in/mulinge-kenedy-45a2b222a/" target="_blank" style="background-color: transparent; border: 2px solid white; color: white; padding: 15px 30px; border-radius: 25px; text-decoration: none; font-weight: bold; margin: 10px; display: inline-block; transition: all 0.3s ease;">Connect on LinkedIn</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleNav() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+
+        // Initialize portfolio filter
+        filterSelection("all");
+        
+        function filterSelection(c) {
+            var x, i;
+            x = document.getElementsByClassName("portfolio-item");
+            if (c == "all") c = "";
+            for (i = 0; i < x.length; i++) {
+                w3RemoveClass(x[i], "show");
+                if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+            }
+        }
+
+        function w3AddClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+                if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+            }
+        }
+
+        function w3RemoveClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+                while (arr1.indexOf(arr2[i]) > -1) {
+                    arr1.splice(arr1.indexOf(arr2[i]), 1);     
+                }
+            }
+            element.className = arr1.join(" ");
+        }
+
+        // Add active class to the current button
+        var btnContainer = document.getElementById("myBtnContainer");
+        var btns = btnContainer.getElementsByClassName("btn");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function(){
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+            });
+        }
+
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
