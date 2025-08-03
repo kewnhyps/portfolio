@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KENEDY MUTHUI - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="/placeholder.svg?height=32&width=32" type="image/svg+xml">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #d5e1df;
+            padding-top: 13px;
+        }
+
+        .main {
+            max-width: 920px;
+            margin: auto;
+        }
+
+        @media screen and (max-width: 600px) {
+            .main {
+                width: 90%;
+            }
+        }
+
+        /* Header Styles */
+        .header-row {
+            background-color: #73AD21;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .header-col1 {
+            flex: 0 0 20%;
+            text-align: center;
+        }
+
+        .header-col2 {
+            flex: 0 0 50%;
+            text-align: center;
+        }
+
+        .header-col3 {
+            flex: 0 0 30%;
+            text-align: center;
+        }
+
+        .profile-img {
+            height: 95px;
+            width: 95px;
+            border-radius: 50px;
+            object-fit: cover;
+        }
+
+        .header-col2 h1 {
+            margin: 0;
+            color: white;
+        }
+
+        .header-col2 font {
+            color: white;
+        }
+
+        .social-links {
+            margin: 24px 0;
+        }
+
+        .social-links a {
+            text-decoration: none;
+            font-size: 18px;
+            color: black;
+            margin: 0 5px;
+        }
+
+        @media screen and (max-width: 600px) {
+            .header-row {
+                flex-direction: column;
+            }
+            .header-col1, .header-col2, .header-col3 {
+                flex: 1;
+                width: 100%;
+                padding: 5px;
+            }
+        }
+
+        /* Navigation Styles */
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .topnav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 30px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .topnav .icon1 {
+            display: none;
+        }
+
+        @media screen and (max-width: 600px) {
+            .topnav a:not(:first-child) {display: none;}
+            .topnav a.icon1 {
+                float: right;
+                display: block;
+            }
+            .topnav a {
+                padding: 8px 20px;
+                font-size: 13px;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .topnav.responsive {position: relative;}
+            .topnav.responsive .icon1 {
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+            .topnav.responsive a {
+                float: none;
+                display: block;
+                text-align: left;
+            }
+        }
+
+        /* Content Styles */
+        .content-section {
+            display: none;
+            background-color: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0pt 2px 5px rgba(105, 108, 109, 0.7), 0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        /* Home Page Styles */
+        .home-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .home-card {
+            background-color: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0pt 2px 5px rgba(105, 108, 109, 0.7), 0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
+            text-align: center;
+        }
+
+        /* About Developer Styles */
+        .developer-container {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .developer-left {
+            flex: 0 0 300px;
+            text-align: center;
+        }
+
+        .developer-right {
+            flex: 1;
+        }
+
+        .flip-card {
+            background-color: transparent;
+            width: 250px;
+            height: 300px;
+            perspective: 1000px;
+            margin: 0 auto;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+        }
+
+        .flip-card-front {
+            background-color: #bbb;
+            color: black;
+        }
+
+        .flip-card-back {
+            background-color: #2980b9;
+            color: white;
+            transform: rotateY(180deg);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .flip-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        @media screen and (max-width: 900px) {
+            .developer-container {
+                flex-direction: column;
+            }
+            .developer-left {
+                flex: none;
+            }
+        }
+
+        /* Portfolio Styles */
+        .portfolio-filters {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .portfolio-filters .btn {
+            border: none;
+            outline: none;
+            padding: 12px 16px;
+            background-color: white;
+            cursor: pointer;
+            margin: 5px;
+            border-radius: 5px;
+        }
+
+        .portfolio-filters .btn:hover {
+            background-color: #ddd;
+        }
+
+        .portfolio-filters .btn.active {
+            background-color: #666;
+            color: white;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .portfolio-item {
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0pt 2px 5px rgba(105, 108, 109, 0.7), 0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
+            text-align: center;
+            display: none;
+        }
+
+        .portfolio-item.show {
+            display: block;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            max-height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .portfolio-item a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .portfolio-item a:hover {
+            color: #73AD21;
+        }
+
+        /* Contact Form Styles */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form input[type=text], 
+        .contact-form select, 
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f2f2f2;
+            box-sizing: border-box;
+            margin-top: 4px;
+            margin-bottom: 15px;
+            resize: vertical;
+        }
+
+        .contact-form input[type=submit] {
+            background-color: #73AD21;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .contact-form input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+        /* Button Styles */
+        .btn {
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            background-color: #73AD21;
+            border-radius: 10px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 5px;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        .btn-small {
+            padding: 4px 8px;
+            font-weight: bold;
+            background-color: blue;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: black;
+            color: white;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-section {
+            text-align: center;
+            padding: 15px;
+        }
+
+        .footer-section hr {
+            border: 1px solid #ccc;
+            margin: 10px 0;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #73AD21;
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            display: none;
+            z-index: 1000;
+        }
+
+        .notification.show {
+            display: block;
+        }
+
+        /* Responsive adjustments */
+        @media screen and (max-width: 600px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            .home-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <!-- Header -->
+        <div class="header-row">
+            <div class="header-col1">
+                <img src="/placeholder.svg?height=95&width=95" alt="Ken Profile" class="profile-img">
+            </div>
+            <div class="header-col2">
+                <h1>KEN<sup style="font-size: 16px;">TM</sup></h1>
+                <font>Responsive.Innovative.Creative</font>
+            </div>
+            <div class="header-col3">
+                <div class="social-links">
+                    <a href="#"><i class="fa fa-dribbble"></i></a> 
+                    <a href="#"><i class="fa fa-twitter"></i></a>  
+                    <a href="#"><i class="fa fa-linkedin"></i></a>  
+                    <a href="#"><i class="fa fa-facebook"></i></a> 
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="topnav" id="myTopnav">
+            <a href="#" onclick="showSection('home')" class="active">HOME</a>
+            <a href="#" onclick="showSection('about')">ABOUT ME</a>
+            <a href="#" onclick="showSection('portfolio')">PORTFOLIO</a>
+            <a href="#" onclick="showSection('blog')">BLOG</a>
+            <a href="#" onclick="showSection('contact')">CONTACTS</a>
+            <a href="javascript:void(0);" class="icon1" onclick="toggleNav()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+
+        <!-- Home Section -->
+        <div id="home" class="content-section active">
+            <div class="home-grid">
+                <div class="home-card">
+                    <h3><i class="fa fa-code"></i> Web Development</h3>
+                    <p>Custom websites and web applications built with modern technologies.</p>
+                    <button class="btn" onclick="showSection('portfolio')">View Projects</button>
+                </div>
+                <div class="home-card">
+                    <h3><i class="fa fa-mobile"></i> Mobile Apps</h3>
+                    <p>Native and cross-platform mobile applications for iOS and Android.</p>
+                    <button class="btn" onclick="showSection('portfolio')">See Apps</button>
+                </div>
+                <div class="home-card">
+                    <h3><i class="fa fa-cogs"></i> Systems</h3>
+                    <p>Management systems and enterprise solutions for businesses.</p>
+                    <button class="btn" onclick="showSection('portfolio')">Explore Systems</button>
+                </div>
+                <div class="home-card">
+                    <h3><i class="fa fa-graduation-cap"></i> Training</h3>
+                    <p>Programming courses and technical training sessions.</p>
+                    <button class="btn">Learn More</button>
+                </div>
+            </div>
+            
+            <!-- Advertisement -->
+            <div style="text-align: center; margin: 20px 0; padding: 15px; background: white; border-radius: 5px;">
+                <h4>School Websites Available</h4>
+                <p>Need a responsive website for your school? <a href="#" onclick="showSection('contact')">Contact us</a> to get it at a cheap price now.</p>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <div id="about" class="content-section">
+            <div class="developer-container">
+                <div class="developer-left">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="/placeholder.svg?height=300&width=250" alt="developer">
+                            </div>
+                            <div class="flip-card-back">
+                                <h1>Ken Whyps</h1> 
+                                <p>Software Engineer</p> 
+                                <p>Passionate about creating innovative solutions</p>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <button class="btn" onclick="showSection('portfolio')">VIEW PORTFOLIO</button>
+                </div>
+                <div class="developer-right">
+                    <h2>About Me</h2>
+                    <p>I am a passionate software developer with expertise in web development, mobile applications, and system design. With years of experience in the field, I specialize in creating responsive, innovative, and creative solutions for businesses and individuals.</p>
+                    <br>
+                    <h3>Skills & Expertise</h3>
+                    <ul>
+                        <li>Web Development (HTML, CSS, JavaScript, PHP)</li>
+                        <li>Mobile App Development (Android, iOS)</li>
+                        <li>Database Design and Management</li>
+                        <li>System Architecture and Design</li>
+                        <li>UI/UX Design</li>
+                        <li>Project Management</li>
+                    </ul>
+                    <br>
+                    <h3>Experience</h3>
+                    <p>I have worked on numerous projects ranging from simple websites to complex management systems. My goal is to deliver high-quality solutions that meet client requirements and exceed expectations.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Portfolio Section -->
+        <div id="portfolio" class="content-section">
+            <h2 style="text-align: center;">My Portfolio</h2>
+            
+            <div class="portfolio-filters">
+                <button class="btn active" onclick="filterPortfolio('all')">Show All</button>
+                <button class="btn" onclick="filterPortfolio('website')">Websites</button>
+                <button class="btn" onclick="filterPortfolio('systems')">Systems</button>
+                <button class="btn" onclick="filterPortfolio('apps')">Mobile Apps</button>
+                <button class="btn" onclick="filterPortfolio('ios')">iOS</button>
+            </div>
+
+            <div class="portfolio-grid">
+                <div class="portfolio-item website show">
+                    <img src="/placeholder.svg?height=150&width=300" alt="Student Website">
+                    <h4><a href="https://www.demo.ecites.co.ke/demo/student/" target="_blank">Student Website</a></h4>
+                    <p>A comprehensive student management portal</p>
+                </div>
+                
+                <div class="portfolio-item website show">
+                    <img src="/placeholder.svg?height=150&width=300" alt="Kentech Website">
+                    <h4><a href="https://www.demo.ecites.co.ke/demo/mainpage/" target="_blank">Kentech School of Computing</a></h4>
+                    <p>Modern school website with course management</p>
+                </div>
+                
+                <div class="portfolio-item website show">
+                    <img src="/placeholder.svg?height=150&width=300" alt="Alumni Website">
+                    <h4><a href="https://www.demo.ecites.co.ke/demo/alumni/" target="_blank">Alumni Website</a></h4>
+                    <p>Alumni networking and management platform</p>
+                </div>
+                
+                <div class="portfolio-item systems show">
+                    <img src="/placeholder.svg?height=150&width=300" alt="Church Management System">
+                    <h4><a href="https://www.demo.ecites.co.ke/demo/church/" target="_blank">Church Management System</a></h4>
+                    <p>Complete church administration and member management</p>
+                </div>
+                
+                <div class="portfolio-item systems show">
+                    <img src="/placeholder.svg?height=150&width=300" alt="Inventory System">
+                    <h4><a href="#" target="_blank">Inventory Management System</a></h4>
+                    <p>Stock management and tracking solution</p>
+                </div>
+                
+                <div class="portfolio-item systems show">
+                    <img src="/placeholder.svg?height=150&width=300" alt="Hospital System">
+                    <h4><a href="#" target="_blank">Hospital Management System</a></h4>
+                    <p>Patient records and hospital administration</p>
+                </div>
+                
+                <div class="portfolio-item apps show">
+                    <img src="/placeholder.svg?height=150&width=300" alt="Ecites App">
+                    <h4>Ecites Mobile App</h4>
+                    <p>Cross-platform mobile application for service management</p>
+                    <button class="btn-small">See More <i class="fa fa-arrow-circle-o-right"></i></button>
+                </div>
+                
+                <div class="portfolio-item apps show">
+                    <img src="/placeholder.svg?height=150&width=300" alt="E-commerce App">
+                    <h4>E-commerce Mobile App</h4>
+                    <p>Online shopping application with payment integration</p>
+                    <button class="btn-small">See More <i class="fa fa-arrow-circle-o-right"></i></button>
+                </div>
+                
+                <div class="portfolio-item apps show">
+                    <img src="/placeholder.svg?height=150&width=300" alt="Task App">
+                    <h4>Task Management App</h4>
+                    <p>Productivity app for task and project management</p>
+                    <button class="btn-small">See More <i class="fa fa-arrow-circle-o-right"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blog Section -->
+        <div id="blog" class="content-section">
+            <h2 style="text-align: center;">Blog</h2>
+            <div class="home-grid">
+                <div class="home-card">
+                    <h3>Latest Web Development Trends</h3>
+                    <p>Exploring the newest technologies and frameworks in web development...</p>
+                    <small>Posted on: January 15, 2024</small>
+                </div>
+                <div class="home-card">
+                    <h3>Mobile App Development Best Practices</h3>
+                    <p>Tips and tricks for creating successful mobile applications...</p>
+                    <small>Posted on: January 10, 2024</small>
+                </div>
+                <div class="home-card">
+                    <h3>Database Design Principles</h3>
+                    <p>Understanding the fundamentals of good database architecture...</p>
+                    <small>Posted on: January 5, 2024</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div id="contact" class="content-section">
+            <h2 style="text-align: center;">Contact Me</h2>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <label for="fname">Full Name:</label>
+                    <input type="text" id="fname" name="fname" placeholder="John Doe" required>
+
+                    <label for="phone">Phone No:</label>
+                    <input type="text" id="phone" name="phone" placeholder="0700000000" pattern="[0-9]{10,12}" required>
+
+                    <label for="subject">Subject:</label>
+                    <textarea id="subject" name="subject" placeholder="Write something..." style="height:100px" required></textarea>
+                    
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <hr>
+                    <div style="padding: 15px;">
+                        <i class="fa fa-check" style='font-size:20px;color:white;padding: 2px;'></i>
+                        <span style="color: white; font-size: 18px;"><b>50+</b> Completed projects</span><br><br>
+                        <i class="fa fa-clock-o" style='font-size:20px;color:white;padding: 2px;'></i>
+                        <span style="color: white; font-size: 18px;"><b>5+</b> Projects in Progress</span><br><br>
+                        <i class="fa fa-calendar" style='font-size:20px;color:white;padding: 2px;'></i>
+                        <span style="color: white; font-size: 18px;"><b>3 weeks</b> Project Time</span>
+                    </div>
+                    <hr>
+                </div>
+                
+                <div class="footer-section">
+                    <hr>
+                    <div style="display: flex; align-items: center; justify-content: center; padding: 20px;">
+                        <div style="text-align: left; margin-right: 20px;">
+                            <span style="color: blue; font-weight: bold;">Android App</span><br>
+                            <span style="color: orange; font-weight: bold; font-size: 20px;">Development</span><br>
+                            <span style="font-size: 20px; color: white;">Hurry!!! Get one now</span>
+                        </div>
+                        <i class="fa fa-android" style="font-size:60px;color:brown;"></i>
+                    </div>
+                    <hr>
+                </div>
+                
+                <div class="footer-section">
+                    <hr>
+                    <div style="padding: 20px;">
+                        <a href="https://www.facebook.com/Kewnhyps.Muthui" target="_blank">
+                            <i class="fa fa-facebook" style="color:#3B5998;font-size: 18px;"></i> FACEBOOK
+                        </a><br><br>
+                        <a href="https://twitter.com/Kewnhyps" target="_blank">
+                            <i class="fa fa-twitter" style="color:#55ACEE;font-size: 18px;"></i> TWITTER
+                        </a><br><br>
+                        <a href="https://instagram.com/kewnest" target="_blank">
+                            <i class="fa fa-instagram" style="color:#3B5998;font-size: 18px;"></i> INSTAGRAM
+                        </a>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin: 20px 0;">
+                <a href="tel:070-475-3346" style="text-decoration: none">
+                    <i class="fa fa-phone" style='font-size:20px;color:green;padding: 3px;'></i>
+                    <span style="color: white; font-size: 20px;">Call Now</span>
+                </a>
+            </div>
+            
+            <div style="text-align: center; padding: 10px; border-top: 1px solid #ccc;">
+                <p>&copy; 2024 Kenedy Muthui. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <span id="notificationText"></span>
+    </div>
+
+    <script>
+        // Navigation functionality
+        function toggleNav() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+
+        // Section navigation
+        function showSection(sectionName) {
+            // Hide all sections
+            var sections = document.getElementsByClassName('content-section');
+            for (var i = 0; i < sections.length; i++) {
+                sections[i].classList.remove('active');
+            }
+            
+            // Remove active class from all nav links
+            var navLinks = document.querySelectorAll('.topnav a');
+            navLinks.forEach(function(link) {
+                link.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionName).classList.add('active');
+            
+            // Add active class to clicked nav link
+            event.target.classList.add('active');
+            
+            // Close mobile menu if open
+            document.getElementById("myTopnav").className = "topnav";
+        }
+
+        // Portfolio filtering
+        function filterPortfolio(category) {
+            var items = document.getElementsByClassName("portfolio-item");
+            var buttons = document.querySelectorAll('.portfolio-filters .btn');
+            
+            // Remove active class from all buttons
+            buttons.forEach(function(btn) {
+                btn.classList.remove('active');
+            });
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+            
+            // Show/hide portfolio items
+            for (var i = 0; i < items.length; i++) {
+                items[i].classList.remove("show");
+                if (category === "all" || items[i].classList.contains(category)) {
+                    items[i].classList.add("show");
+                }
+            }
+        }
+
+        // Contact form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            var name = document.getElementById('fname').value;
+            var phone = document.getElementById('phone').value;
+            var subject = document.getElementById('subject').value;
+            
+            if (name && phone && subject) {
+                showNotification('Hello ' + name + '! We are glad to hear from you. Your message has been received.');
+                this.reset();
+            } else {
+                showNotification('Please fill in all fields.');
+            }
+        });
+
+        // Notification system
+        function showNotification(message) {
+            var notification = document.getElementById('notification');
+            var notificationText = document.getElementById('notificationText');
+            
+            notificationText.textContent = message;
+            notification.classList.add('show');
+            
+            setTimeout(function() {
+                notification.classList.remove('show');
+            }, 5000);
+        }
+
+        // Initialize portfolio filter
+        window.onload = function() {
+            filterPortfolio('all');
+        };
+
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
