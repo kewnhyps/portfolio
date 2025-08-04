@@ -4,6 +4,7 @@ A modern, responsive personal portfolio website showcasing my skills as a Senior
 
 ## 🌐 Live Preview
 
+**Domain hosted Page:** [https://portfolio.ecites.co.ke)
 **GitHub Pages:** [https://kewnhyps.github.io/portfolio/](https://kewnhyps.github.io/portfolio/)
 
 *Note: To enable GitHub Pages, go to your repository Settings > Pages > Source: Deploy from a branch > Select 'main' branch*
